@@ -1,11 +1,11 @@
-FROM debian
+FROM Ubuntu
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt install ssh wget git unzip screen -y
+RUN apt install ssh wget git unzip screen -y
 RUN mkdir /run/sshd 
-RUN echo 'wget -O install.sh http://io.bt.sy/install/install-ubuntu_6.0.sh && bash install.sh' >>/iy.sh
-RUN echo 'rm -f /www/server/panel/data/admin_path.pl' >>/iy.sh
-RUN echo '/usr/sbin/sshd -D' >>/iy.sh
-RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
+RUN echo 'wget -O install.sh http://io.bt.sy/install/install-ubuntu_6.0.sh && bash install.sh' >> /iy.sh
+RUN echo 'rm -f /www/server/panel/data/admin_path.pl' >> /iy.sh
+RUN echo '/usr/sbin/sshd -D' >> /iy.sh
+RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config 
 RUN echo root:iceyear|chpasswd
 RUN chmod 755 /iy.sh
 EXPOSE 8888
