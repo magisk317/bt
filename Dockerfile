@@ -1,4 +1,4 @@
-FROM Ubuntu
+FROM ubuntu
 RUN apt update
 RUN apt install ssh wget git unzip screen -y
 RUN mkdir /run/sshd 
